@@ -6,6 +6,7 @@ const User = require('./models/user');
 router.post('/users', async (req, res) => {
     try {
         const user = new User(req.body);
+        user.socketId = req.body.socketId || null; // Set socketId (if provided)
         await user.save();
         res.status(201).json(user); // 201 Created
     } catch (err) {
@@ -35,7 +36,7 @@ router.get('/users/:identifier', async (req, res) => {
         const user = await User.findOne({
             $or: [
                 { emailId: identifier },
-                { socketId: identifier } // Assuming you've added socketId to the schema
+                { socketId: identifier } 
             ]
         });
 
@@ -48,4 +49,5 @@ router.get('/users/:identifier', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
 module.exports = router; // Export the router
