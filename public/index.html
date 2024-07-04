@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>User Registration</h1>
+
+    <form id="userForm">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div>
+            <label for="mobileNo">Mobile No (10 digits):</label>
+            <input type="tel" id="mobileNo" name="mobileNo" pattern="[0-9]{10}" required>
+        </div>
+        
+        <div>
+            <label for="emailId">Email ID:</label>
+            <input type="email" id="emailId" name="emailId" required>
+        </div>
+
+        <fieldset>
+            <legend>Address</legend>
+            <div>
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street">
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state">
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country">
+            </div>
+        </fieldset>
+
+        <div>
+            <label for="loginId">Login ID (8 characters):</label>
+            <input type="text" id="loginId" name="loginId" pattern="[a-zA-Z0-9]{8}" required>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+    
+    <div id="userDisplay"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>
